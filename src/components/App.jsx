@@ -22,6 +22,20 @@ export class App extends Component {
     };
   };
 
+
+  componentDidMount() { 
+    const contacts = localStorage.getItem("contacts");
+    const parsedContacts = JSON.parse(contacts);
+
+    this.setState({contacts: parsedContacts}) 
+  };
+
+  componentDidUpdate(prevProps, prevState) { 
+    if(prevProps !== prevState){
+      localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
+    }
+  }; 
+
   setForm = (e) =>{
     const {name, value} = e.target;   
     this.setState({[name]: value});
