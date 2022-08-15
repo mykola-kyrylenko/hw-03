@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-
+import {ButtonLoadMore} from '../imageGalleryApp.styled';
 
 export default function Button({onClick}) {
   return (
-    <button onClick={onClick}>
+    <ButtonLoadMore onClick={onClick}>
       Load more
-    </button>
+    </ButtonLoadMore>
   )
 }

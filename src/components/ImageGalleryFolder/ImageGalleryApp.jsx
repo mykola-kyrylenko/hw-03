@@ -5,6 +5,7 @@ import Button from './Button/Button';
 import {getImages} from './services/FetchAPI';
 import Loader from './Loader/Loader';
 import Modal from './Modal/Modal';
+import {Container} from './imageGalleryApp.styled';
 
 export default class ImageGalleryApp extends Component {
   state = {
@@ -69,6 +70,11 @@ export default class ImageGalleryApp extends Component {
     } catch (error) {
       console.log(error)
     }
+
+    // window.scrollTo({
+    //   bottom: document.documentElement.offsetHeight,
+    //   behavior: 'smooth',
+    // });
   };
 
 
@@ -90,12 +96,12 @@ export default class ImageGalleryApp extends Component {
   render() {
     console.log(this.state)
     return (
-      <div>
+      <Container>
         <Searchbar onSubmit={this.handleSubmit}/>
         {this.state.isLoading ? <Loader/> : <ImageGallery images={this.state.images} onClickImage={this.handleClickImage}/>}
         {this.state.images.length > 0 && <Button onClick={this.onHandleClickMore}/>}
         {this.state.showModal && (<Modal img={this.state.currentImage} onClose={this.toggleModal}/>)}
-      </div>
+      </Container>
     )
   }
 }

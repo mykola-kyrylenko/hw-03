@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {SearchBar, SearchForm, SearchFormButton, SearchFormInput} from '../imageGalleryApp.styled';
+import {ImSearch} from "react-icons/im";
 
 export default class Searchbar extends Component {
   state = {
@@ -12,14 +14,13 @@ export default class Searchbar extends Component {
 
   render() {
       return (
-      <header className="searchbar">
-        <form className="form" onSubmit={this.props.onSubmit}>
-          <button type="submit" className="button">
-            <span className="button-label">Search</span>
-          </button>
+      <SearchBar>
+        <SearchForm onSubmit={this.props.onSubmit}>
+          <SearchFormButton type="submit" >
+            <ImSearch></ImSearch>
+          </SearchFormButton>
 
-          <input
-            className="input"
+          <SearchFormInput
             type="text"
             autoComplete="off"
             autoFocus
@@ -28,8 +29,8 @@ export default class Searchbar extends Component {
             value={this.state.inputValue}
             onChange={this.handleInputChange}
           />
-        </form>
-      </header>
+        </SearchForm>
+      </SearchBar>
     )
   }
 }

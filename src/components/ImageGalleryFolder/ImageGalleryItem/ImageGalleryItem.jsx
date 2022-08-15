@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Rings } from 'react-loader-spinner';
-
+import {ImageItem, ImageGalleryItemImage} from '../imageGalleryApp.styled';
 
 export default function ImageGalleryItem({ tags, webformatURL, onClick, largeImageURL,}) {
 
@@ -8,12 +8,11 @@ export default function ImageGalleryItem({ tags, webformatURL, onClick, largeIma
   return (
 
     <>
-      <li
-        className="ImageGalleryItem"
+      <ImageItem
         onClick={() => onClick({ largeImageURL, tags })}
       >
-        <img className="ImageGalleryItem-image" src={webformatURL} alt={tags} />
-      </li>
+        <ImageGalleryItemImage src={webformatURL} alt={tags} />
+      </ImageItem>
     </>
   );
 }
